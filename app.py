@@ -54,7 +54,8 @@ def remove_negative_prompts(user_prompt):
 ########################################################################
 
 # ✅ Set the local model path
-MODEL_PATH = r"D:\ole-ai-image-gen\model\stable-diffusion-v1-4"
+# MODEL_PATH = r"D:\ole-ai-image-gen\model\stable-diffusion-v1-4"
+MODEL_PATH = "CompVis/stable-diffusion-v1-4"
 
 # ✅ Check if CUDA (GPU) is available
 device = "cuda" if torch.cuda.is_available() else "cpu"
