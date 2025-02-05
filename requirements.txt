@@ -1,5 +1,9 @@
-diffusers==0.32.2
-transformers==4.47.1
-torch==2.5.1+cu124
-torchvision==0.20.1+cu124
-nltk==3.9.1
+streamlit
+torch==2.1.0
+torchvision
+diffusers
+transformers
+accelerate
+better_profanity
+autocorrect
+sentencepiece
