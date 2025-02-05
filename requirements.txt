@@ -6,3 +6,4 @@ better_profanity
 autocorrect
 sentencepiece
 torch==2.6.0
+nltk
