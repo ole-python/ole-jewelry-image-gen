@@ -1,4 +1,3 @@
-streamlit
 torch==2.1.0
 torchvision
 diffusers==0.24.0
