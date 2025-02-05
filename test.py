@@ -74,11 +74,7 @@ dtype = torch.float16 if device == "cuda" else torch.float32
 @st.cache_resource
 def load_model():
     """Load the Stable Diffusion model from Hugging Face and move to CPU (since Streamlit Cloud has no GPU)."""
-    pipe = StableDiffusionPipeline.from_pretrained(
-        "CompVis/stable-diffusion-v1-4",
-        torch_dtype=torch.float32,  # ✅ Use float32 (CPU-compatible)
-        revision="fp32",  # ✅ Ensures 32-bit precision
-    )
+    pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4")
     pipe.to("cpu")  # ✅ Streamlit Cloud does NOT support CUDA, so force CPU usage
     return pipe
 
