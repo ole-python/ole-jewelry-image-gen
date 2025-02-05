@@ -2,4 +2,6 @@ torchvision
 diffusers==0.24.
 transformers
 accelerate
-
+better_profanity
+autocorrect
+sentencepiece
