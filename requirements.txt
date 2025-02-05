@@ -1,4 +1,5 @@
 torchvision
 diffusers==0.24.
 transformers
+accelerate
 
