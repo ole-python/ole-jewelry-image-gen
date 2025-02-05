@@ -1,9 +1,7 @@
 torchvision
-diffusers==0.24.
-transformers
-accelerate
-better_profanity
-autocorrect
-sentencepiece
+diffusers==0.32.2
+transformers==4.48.2 
+better_profanity==0.7.0 
+autocorrect==2.6.1
 torch==2.6.0
 nltk
