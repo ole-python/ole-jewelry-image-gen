@@ -64,11 +64,22 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 dtype = torch.float16 if device == "cuda" else torch.float32
 
 # ✅ Cache model loading to prevent reloading every time
+# @st.cache_resource
+# def load_model():
+#     """Load the Stable Diffusion model from local storage and move to GPU if available."""
+#     pipe = StableDiffusionPipeline.from_pretrained(MODEL_PATH, torch_dtype=dtype)
+#     pipe.to(device)
+#     return pipe
+
 @st.cache_resource
 def load_model():
-    """Load the Stable Diffusion model from local storage and move to GPU if available."""
-    pipe = StableDiffusionPipeline.from_pretrained(MODEL_PATH, torch_dtype=dtype)
-    pipe.to(device)
+    """Load the Stable Diffusion model from Hugging Face and move to GPU if available."""
+    pipe = StableDiffusionPipeline.from_pretrained(
+        "CompVis/stable-diffusion-v1-4",
+        torch_dtype=torch.float32,  # ✅ Use float32 (Reduces memory issues)
+        revision="fp32",  # ✅ Ensures 32-bit precision
+    )
+    pipe.to("cuda" if torch.cuda.is_available() else "cpu")
     return pipe
 
 # ✅ Load the model
